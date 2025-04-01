@@ -11,8 +11,13 @@
    git clone https://github.com/Marcone-Santos1/amar_assist_test.git
    cd amar_assist_test
    ```
+   
+2. Configure o ambiente:
+   ```bash
+   cp .env.example .env
+   ```
 
-2. Instale o sail:
+3. Instale o sail:
    ```bash
     docker run --rm \
     -u "$(id -u):$(id -g)" \
@@ -20,11 +25,6 @@
     -w /var/www/html \
     laravelsail/php82-composer:latest \
     composer install --ignore-platform-reqs
-   ```
-
-3. Configure o ambiente:
-   ```bash
-   cp .env.example .env
    ```
 
 4. Suba os containers e gere a key:

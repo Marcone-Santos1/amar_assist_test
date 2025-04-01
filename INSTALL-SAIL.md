@@ -44,12 +44,17 @@
    ./vendor/bin/sail npm install
    ```
 
-7. Compile os assets (para desenvolvimento):
+7. Compile os assets:
    ```bash
    ./vendor/bin/sail npm run dev
    ```
 
-8. Acesse a aplicação:
+8. Link o storage:
+   ```bash
+   ./vendor/bin/sail artisan storage:link
+   ```
+
+9. Acesse a aplicação:
    ```
    http://localhost
    ```

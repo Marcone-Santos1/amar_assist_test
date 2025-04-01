@@ -6,28 +6,34 @@
 
 ## Passo a Passo
 
-1. Clone o repositório:
+1. Clone o repositório e instale o sail:
    ```bash
-   git clone https://github.com/seu-repositorio/projeto.git
-   cd projeto
+   git clone https://github.com/Marcone-Santos1/amar_assist_test.git
+   cd amar_assist_test
    ```
 
-2. Instale as dependências PHP (usando o container do Sail):
+2. Instale o sail:
    ```bash
-   ./vendor/bin/sail composer install
+    docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php82-composer:latest \
+    composer install --ignore-platform-reqs
    ```
 
 3. Configure o ambiente:
    ```bash
    cp .env.example .env
-   ./vendor/bin/sail artisan key:generate
    ```
 
-4. Suba os containers:
+4. Suba os containers e gere a key:
    ```bash
    ./vendor/bin/sail up -d
+   
+   ./vendor/bin/sail artisan key:generate
    ```
-
+   
 5. Execute as migrações e seeders:
    ```bash
    ./vendor/bin/sail artisan migrate
